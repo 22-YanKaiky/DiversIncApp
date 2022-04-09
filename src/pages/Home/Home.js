@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/alt-text */
 import axios from "axios";
 import { useEffect, useState } from "react";
+import NavBar from "../../components/navbar/NavBar";
 import api from "../../services/config/api_url";
 
 export default function Home() {
@@ -16,6 +18,10 @@ export default function Home() {
   }, [data])
 
   return (
-    <div>{data.message}</div>
+    <div style={{ display: 'flex' }}>
+      <NavBar />
+
+      Imagem DashBoard Aquiiiiii
+    </div>
   )
 }
