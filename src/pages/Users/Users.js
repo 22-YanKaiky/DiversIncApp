@@ -1,10 +1,32 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
 import api from "../../services/usersAPI";
 
-const Users = async () => {
-  const response = await axios.get(api)
+export default function Users() {
+  const [data, setData] = useState([]);
 
-  return response;
+  async function index() {
+    const response = await axios.get(api)
+
+    setData(response.data);
+  }
+
+  useEffect(() => {
+    index()
+  }, [data])
+
+  return (
+    <div>{data.map((u) => {
+      return (
+        <div style={{ background: 'gray', width: '40%' }}>
+          <p>{u.name}</p>
+          <p>{u.email}</p>
+          <p>{u.age}</p>
+          <p>{u.genre}</p>
+          <p>{u.bithday}</p>
+          <p>{u.cpf}</p>
+        </div>
+      )
+    })}</div>
+  )
 }
-
-export default Users;

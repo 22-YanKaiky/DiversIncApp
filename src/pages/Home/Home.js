@@ -2,20 +2,20 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import api from "../../services/config/api_url";
 
-const Home = async () => {
+export default function Home() {
   const [data, setData] = useState([]);
 
+  async function index() {
+    const response = await axios.get(api)
+
+    setData(response.data);
+  }
+
   useEffect(() => {
-    async function index() {
-      const response = await axios.get(api);
-
-      setData(response.data)
-    }
-
-    index();
+    index()
   }, [data])
 
-  return <div>{data}</div>
+  return (
+    <div>{data.message}</div>
+  )
 }
-
-export default Home;
