@@ -1,10 +1,13 @@
 import NavBar from "../../components/navbar/NavBar";
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import dashboard from "../../images/dashboard.png";
 
 export default function Home() {
   return (
     <div style={{ display: 'flex' }}>
       <NavBar />
+
+      <VolumeUpIcon />
 
       <div style={{ display: 'flex', marginLeft: '-6rem', justifyContent: 'space-between', alignItems: 'center' }}>
 
